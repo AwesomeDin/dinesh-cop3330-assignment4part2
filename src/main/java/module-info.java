@@ -7,4 +7,5 @@ module ucf.assignments {
 
     opens ucf.assignments to javafx.fxml;
     exports ucf.assignments;
+
 }

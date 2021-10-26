@@ -16,7 +16,7 @@ public class ToDoListTableManagement {
         ObservableList<ToDoListItem> listComplete = FXCollections.observableArrayList();
         for(ToDoListItem item: theList)
         {
-            if(item.getitemStatus().toUpperCase().equals("COMPLETE"))
+            if(item.getStatus().toUpperCase().equals("COMPLETE"))
                 listComplete.add(item);
         }
         return theList;
@@ -28,7 +28,7 @@ public class ToDoListTableManagement {
         ObservableList<ToDoListItem> listIncomplete = FXCollections.observableArrayList();
         for(ToDoListItem item: theList)
         {
-            if(item.getitemStatus().toUpperCase().equals("INCOMPLETE"))
+            if(item.getStatus().toUpperCase().equals("INCOMPLETE"))
                 listIncomplete.add(item);
         }
         return theList;

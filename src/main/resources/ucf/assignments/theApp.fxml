@@ -20,9 +20,9 @@
                      <content>
                         <TableView fx:id="tableView" prefHeight="416.0" prefWidth="749.0">
                           <columns>
-                            <TableColumn fx:id="descCol" onEditCommit="#changeDescriptionColumn" prefWidth="362.0" text="Description (256 character limit)" />
-                            <TableColumn fx:id="dateCol" onEditCommit="#changeDueDateColumn" prefWidth="204.0" text="Due Date (YYYY-MM-DD)" />
-                              <TableColumn fx:id="staCol" prefWidth="186.0" text="Status" />
+                            <TableColumn fx:id="itemDescCol" onEditCommit="#changeDescriptionColumn" prefWidth="362.0" text="Description (256 character limit)" />
+                            <TableColumn fx:id="itemDateCol" onEditCommit="#changeDueDateColumn" prefWidth="204.0" text="Due Date (YYYY-MM-DD)" />
+                            <TableColumn fx:id="itemStatusCol" prefWidth="186.0" text="Status" />
                           </columns>
                         </TableView>
                      </content>

@@ -21,9 +21,9 @@ public class ToDoListItemManagement {
         theList.add(new ToDoListItem("256 Characters", "Incomplete", time().toString()));
         return theList;
     }
-    public static ObservableList<ToDoListItem> addItem(String desc, String dueDate, String status, ObservableList<ToDoListItem> theList) {
-        theList.add(new ToDoListItem(desc,dueDate,status));
-        return theList;
+
+    public static void addItem(String desc, String dueDate, String status) {
+        theListController.mainList.add(new ToDoListItem(desc,dueDate,status));
         //Will take in the incoming values and create an item
         //Will add the item to the ObservableList of items
 
