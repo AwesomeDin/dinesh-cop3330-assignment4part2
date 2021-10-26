@@ -1,0 +1,57 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+javafx.application <|-- theApp
+javafx.application -- theListController
+theListController -- ToDoListTableManagement
+theListController -- ToDoListItemManagement
+theListController -- ToDoListItem
+theListController -- ToDoListFiles
+
+class theApp {
++main()
++start()
+}
+
+class theListController {
++buttonAddItem()
++buttonRemoveItem()
++buttonChangeStatus()
++buttonShowIncomplete()
++buttonShowComplete()
++buttonShowAll()
++buttonChangeTitle()
++buttonNewTab()
++buttonSaveList()
++buttonLoadList()
++buttonRemoveTab()
+}
+
+class ToDoListFiles {
++saveFile()
++loadFile()
+}
+
+class ToDoListItem {
+-descript
+-status
+-dueDate
++getdescript()
++setdescript()
++getstatus()
++setstatus()
++getdueDate()
++setdueDate()
+}
+
+class ToDoListItemManagement {
++addItem()
++deleteItem()
+}
+
+class ToDoListTableManagement {
++showIncomplete()
++showComplete()
+}
+
+@enduml
