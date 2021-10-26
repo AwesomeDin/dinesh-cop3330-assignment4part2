@@ -12,26 +12,28 @@ public class ToDoListTableManagement {
     public static ObservableList<ToDoListItem> starter() {
         return FXCollections.observableArrayList();
     }
+
     public static ObservableList<ToDoListItem> showComplete(ObservableList<ToDoListItem> theList) {
         ObservableList<ToDoListItem> listComplete = FXCollections.observableArrayList();
         for(ToDoListItem item: theList)
         {
-            if(item.getStatus().toUpperCase().equals("COMPLETE"))
+            if(item.getStatus().equalsIgnoreCase("Complete"))
                 listComplete.add(item);
         }
-        return theList;
+        return listComplete;
         //Uses a for loop to find where the status of the item is equal to "complete"
         //adds the items to a brand new list
         //returns the brand new list
     }
+
     public static ObservableList<ToDoListItem> showIncomplete(ObservableList<ToDoListItem> theList) {
         ObservableList<ToDoListItem> listIncomplete = FXCollections.observableArrayList();
         for(ToDoListItem item: theList)
         {
-            if(item.getStatus().toUpperCase().equals("INCOMPLETE"))
+            if(item.getStatus().equalsIgnoreCase("Incomplete"))
                 listIncomplete.add(item);
         }
-        return theList;
+        return listIncomplete;
         //Uses a for loop to find where the status of the item is equal to "incomplete"
         //adds the items to a brand new list
         //returns the brand new list

@@ -13,6 +13,8 @@ import javafx.scene.layout.AnchorPane;
  *  Copyright 2021 Rithvik Dinesh
  */
 
+//https://docs.oracle.com/javafx/2/ui_controls/table-view.htm <- bless oracle for this documentation
+
 public class theListController {
     public static ObservableList<ToDoListItem> mainList;
 
@@ -74,37 +76,39 @@ public class theListController {
     }
 
     public void buttonChangeStatus() {
+        //Might have to update this so you can change multiple items at once
+
+        if(tableView.getSelectionModel().getSelectedItem().getStatus().equalsIgnoreCase("Incomplete"))
+        {
+            tableView.getSelectionModel().getSelectedItem().setStatus("Complete");
+        }
+        else
+        {
+            tableView.getSelectionModel().getSelectedItem().setStatus("Incomplete");
+        }
+        tableView.refresh();
         //check to see if row was selected
         //change status to "complete" or "incomplete"
         //refresh the table
     }
 
     public void buttonShowIncomplete() {
-         /*
         tableView.setItems(ToDoListTableManagement.showIncomplete(mainList));
         //create a new ObservableList
         //if the status is incomplete add to the new list
         //refresh the table with that new list
-
-         */
     }
 
     public void buttonShowComplete() {
-        /*
         tableView.setItems(ToDoListTableManagement.showComplete(mainList));
         //create a new ObservableList
         //if the status is complete add to the new list
         //refresh the table with that new list
-
-         */
     }
     public void buttonShowAll() {
-        /*
         tableView.setItems(mainList);
         //The status does not matter
         //refresh the table with the full list
-
-         */
     }
 
     public void buttonSaveList() {
@@ -117,6 +121,8 @@ public class theListController {
     }
 
     public void buttonClearLIst() {
+        mainList = FXCollections.observableArrayList();
+        tableView.setItems(mainList);
     }
 
     public void buttonBrowse() {
