@@ -8,12 +8,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 /*
  *  UCF COP3330 Fall 2021 Assignment 4 Solution
  *  Copyright 2021 Rithvik Dinesh
  */
 
+//Resources used
 //https://docs.oracle.com/javafx/2/ui_controls/table-view.htm <- bless oracle for this documentation
+//https://www.dariawan.com/tutorials/java/java-datetimeformatter-tutorial-examples/
 
 public class theListController {
     public static ObservableList<ToDoListItem> mainList;
@@ -128,8 +133,12 @@ public class theListController {
     public void buttonBrowse() {
     }
 
-    public void changeDueDateColumn(TableColumn.CellEditEvent<ToDoListItem, String> toDoListItemStringCellEditEvent) {
+    public void changeDueDateColumn(TableColumn.CellEditEvent<ToDoListItem, String> theItemCell) {
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate date = LocalDate.parse(theItemCell.getNewValue().toString(),fmt);
 
+        tableView.getSelectionModel().getSelectedItem().setDueDate(date.toString());
+        tableView.refresh();
     }
 
     public void changeDescriptionColumn(TableColumn.CellEditEvent<ToDoListItem, String> theItemCell) {
