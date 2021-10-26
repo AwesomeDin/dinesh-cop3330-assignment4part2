@@ -5,11 +5,39 @@ package ucf.assignments;
  *  Copyright 2021 Rithvik Dinesh
  */
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class ToDoListItem {
-    //variables declarations:
-    //descriptions, status, dueDate
+    private final SimpleStringProperty itemDesc;
+    private final SimpleStringProperty itemStatus;
+    private final SimpleStringProperty itemDate;
 
-    //Constructor to set all the variables to the incoming values
+    public ToDoListItem(String itemDesc, String itemStatus, String itemDate) {
+        this.itemDesc = new SimpleStringProperty(itemDesc);
+        this.itemStatus = new SimpleStringProperty(itemStatus);
+        this.itemDate = new SimpleStringProperty(itemDate);
+    }
 
-    //Setters and getters for every variable
+    public String getitemDesc() {
+        return itemDesc.get();
+    }
+    public void getitemDesc(String fName) {
+        itemDesc.set(fName);
+    }
+
+    public String getitemStatus() {
+        return itemStatus.get();
+    }
+    public void setitemStatus(String fName) {
+        itemStatus.set(fName);
+    }
+
+    public String getitemDate() {
+        return itemDate.get();
+    }
+    public void setitemDate(String fName) {
+        itemDate.set(fName);
+    }
+
+    //https://docs.oracle.com/javafx/2/ui_controls/table-view.htm
 }
