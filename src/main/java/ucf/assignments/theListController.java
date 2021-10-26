@@ -57,15 +57,6 @@ public class theListController {
         //refresh the table with the full list
     }
 
-    public void buttonChangeTitle(ActionEvent actionEvent) {
-        //Changes title of the current tabbed list
-    }
-
-    public void buttonNewTab(ActionEvent actionEvent) {
-        //creates a new tab by creating a new list with the same format
-        //allows for management of multiple individual lists
-    }
-
     public void buttonSaveList(ActionEvent actionEvent) {
         //export current tab table as text file
     }
@@ -75,7 +66,9 @@ public class theListController {
         //import that textfile into the table of the current tab
     }
 
-    public void buttonRemoveTab(ActionEvent actionEvent) {
-        //allows the removal of an existing list
+    public void buttonClearLIst(ActionEvent actionEvent) {
+    }
+
+    public void buttonBrowse(ActionEvent actionEvent) {
     }
 }
