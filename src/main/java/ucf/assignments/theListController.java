@@ -142,16 +142,18 @@ public class theListController {
     }
 
     public void changeDescriptionColumn(TableColumn.CellEditEvent<ToDoListItem, String> theItemCell) {
-        /*
         ToDoListItem item = tableView.getSelectionModel().getSelectedItem();
-        if(theItemCell.getNewValue().toString().length() <=256 &&
-                theItemCell.getNewValue().toString().length() >=1)
+        if(theItemCell.getNewValue().length() <=256 &&
+                theItemCell.getNewValue().length() >=1)
         {
-            item.setItemDesc(theItemCell.getNewValue().toString());
+            item.setDescription(theItemCell.getNewValue());
+        }
+        else
+        {
+            item.setDescription("Please adhere to 256 character limit, please reenter the description.");
+            tableView.refresh();
         }
         //Did not add an error yet, but going to have to if they don't follow the rules
-
-         */
     }
 
 }
