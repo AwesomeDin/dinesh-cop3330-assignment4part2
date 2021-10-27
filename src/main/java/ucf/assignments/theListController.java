@@ -7,7 +7,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.Stage;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -28,6 +31,8 @@ public class theListController {
     @FXML public TableColumn<ToDoListItem, String> itemDescCol;
     @FXML public TableColumn<ToDoListItem, String> itemDateCol;
     @FXML public TableColumn<ToDoListItem, String> itemStatusCol;
+
+    @FXML public AnchorPane anchorPane;
 
     @FXML public TextField textFolderPath;
     @FXML public TextField textFileName;
@@ -131,6 +136,16 @@ public class theListController {
     }
 
     public void buttonBrowse() {
+        final DirectoryChooser dirchooser = new DirectoryChooser();
+
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+
+        File file = dirchooser.showDialog(stage);
+
+        if(file != null)
+        {
+            textFolderPath.setText(file.getAbsolutePath());
+        }
     }
 
     public void changeDueDateColumn(TableColumn.CellEditEvent<ToDoListItem, String> theItemCell) {
