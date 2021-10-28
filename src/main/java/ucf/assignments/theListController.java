@@ -159,7 +159,7 @@ public class theListController {
     }
 
     public void buttonClearList() {
-        mainList = FXCollections.observableArrayList();
+        mainList = ToDoListItemManagement.clearList(mainList);
         tableView.setItems(mainList);
     }
 

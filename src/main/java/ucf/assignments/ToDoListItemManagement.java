@@ -1,5 +1,6 @@
 package ucf.assignments;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.Date;
@@ -36,5 +37,10 @@ public class ToDoListItemManagement {
         }
         //loop to delete the item that was selected from the list passed in
         return theList;
+    }
+
+    public static ObservableList<ToDoListItem> clearList(ObservableList<ToDoListItem> toClear)
+    {
+        return FXCollections.observableArrayList();
     }
 }

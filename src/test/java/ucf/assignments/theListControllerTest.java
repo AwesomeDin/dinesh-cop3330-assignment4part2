@@ -110,7 +110,11 @@ class theListControllerTest {
 
     @Test
     void buttonClearList() {
+        ObservableList<ToDoListItem> test = FXCollections.observableArrayList();
+        ToDoListItemManagement.initialItem(test);
+        ToDoListItemManagement.initialItem(test);
 
+        Assertions.assertTrue(ToDoListItemManagement.clearList(test).size() < 1);
         //restart the currentlist
         //check to see that the currentlist is empty
     }
