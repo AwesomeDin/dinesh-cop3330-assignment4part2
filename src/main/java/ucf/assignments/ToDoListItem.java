@@ -45,6 +45,6 @@ public class ToDoListItem {
 
     @Override
     public String toString() {
-        return getDescription()+"|"+getDueDate()+"|"+getStatus();
+        return getDescription()+"$"+getDueDate()+"$"+getStatus();
     }
 }

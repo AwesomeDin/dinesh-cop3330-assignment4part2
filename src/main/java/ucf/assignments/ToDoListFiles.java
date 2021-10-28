@@ -7,9 +7,8 @@ package ucf.assignments;
 
 import javafx.scene.control.TextField;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.Scanner;
 
 public class ToDoListFiles {
 
@@ -46,11 +45,35 @@ public class ToDoListFiles {
         return true;
     }
 
-    public static boolean loadFile (){
+    public static boolean loadFile (String folderPath, String fileName){
+        int size;
+        try {
+            File file = new File(folderPath+"//"+fileName +".txt");
+            Scanner myinput = new Scanner(file);
+            if(myinput.hasNextInt())
+                size = myinput.nextInt();
+            else
+                return false;
+            myinput.nextLine();
+
+            for(int i = 0;i<size;i++)
+            {
+                String next = myinput.nextLine();
+                String items[] = next.split("\\$");
+                String desc = items[0];
+                String status = items[1];
+                String date = items[2];
+
+                ToDoListItemManagement.addItem(desc,date,status);
+            }
+            myinput.close();
+            return true;
+        } catch (FileNotFoundException e) {
+            return false;
+        }
         //Access the file using File library
         //Get the items and put them into a ToDoListItem Object
         //Add the title to the list tab
         //Return true if it worked or false if it didn't
-        return true;
     }
 }

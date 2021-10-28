@@ -143,11 +143,22 @@ public class theListController {
     }
 
     public void buttonLoadList() {
+        if (ToDoListFiles.loadFile(textFolderPath.getCharacters().toString(),textFileName.getCharacters().toString()))
+        {
+            textFolderPath.setText("");
+            textFileName.setText("");
+        }
+        else
+        {
+            textFolderPath.setText("Please reread the instructions and try again");
+            textFileName.setText("Please reread the instructions and try again");
+        }
+        //export current tab table as text file
         //get external text file
         //import that textfile into the table of the current tab
     }
 
-    public void buttonClearLIst() {
+    public void buttonClearList() {
         mainList = FXCollections.observableArrayList();
         tableView.setItems(mainList);
     }

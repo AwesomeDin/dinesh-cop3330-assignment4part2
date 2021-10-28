@@ -32,7 +32,7 @@
                   <Button layoutX="146.0" layoutY="521.0" mnemonicParsing="false" onAction="#buttonLoadList" prefHeight="25.0" prefWidth="108.0" text="Load" />
                   <Button layoutX="527.0" layoutY="521.0" mnemonicParsing="false" onAction="#buttonSaveList" prefHeight="25.0" prefWidth="108.0" text="Save" />
                   <Button layoutX="778.0" layoutY="328.0" mnemonicParsing="false" onAction="#buttonShowAll" prefHeight="25.0" prefWidth="108.0" text="Show All" />
-                  <Button layoutX="778.0" layoutY="120.0" mnemonicParsing="false" onAction="#buttonClearLIst" prefHeight="25.0" prefWidth="108.0" text="Clear List" />
+                  <Button layoutX="778.0" layoutY="120.0" mnemonicParsing="false" onAction="#buttonClearList" prefHeight="25.0" prefWidth="108.0" text="Clear List" />
                   <Button layoutX="652.0" layoutY="438.0" mnemonicParsing="false" onAction="#buttonBrowse" prefHeight="25.0" prefWidth="108.0" text="Browse..." />
                   <TextField fx:id="textFileName" layoutX="146.0" layoutY="476.0" prefHeight="25.0" prefWidth="489.0" />
                   <Label layoutX="69.0" layoutY="480.0" text="File Name:" />
