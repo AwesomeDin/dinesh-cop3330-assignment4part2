@@ -122,6 +122,23 @@ public class theListController {
     }
 
     public void buttonSaveList() {
+        if(textFolderPath.getCharacters().toString().length() ==0)
+        {
+            textFolderPath.setText("Please choose a correct file path using the Browse button.");
+        }
+        else
+        {
+            if (ToDoListFiles.saveFile(textFolderPath,textFileName, mainList.size()))
+            {
+                textFolderPath.setText("");
+                textFileName.setText("");
+            }
+            else
+            {
+                textFolderPath.setText("Please reread the instructions and try again");
+                textFileName.setText("Please reread the instructions and try again");
+            }
+        }
         //export current tab table as text file
     }
 
