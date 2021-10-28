@@ -1,5 +1,8 @@
 package ucf.assignments;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class theListControllerTest {
@@ -20,6 +23,9 @@ class theListControllerTest {
 
     @Test
     void buttonAddItem() {
+        ObservableList<ToDoListItem> test = FXCollections.observableArrayList();
+        ToDoListItemManagement.initialItem(test);
+        Assertions.assertTrue(test.size()>0);
         //grab the observablelist of items
         //grab the details of the items
         //add the item to the list
@@ -28,6 +34,10 @@ class theListControllerTest {
 
     @Test
     void buttonRemoveItem() {
+        ObservableList<ToDoListItem> test = FXCollections.observableArrayList();
+        ToDoListItemManagement.initialItem(test);
+        test.remove(0);
+        Assertions.assertTrue(test.size()<1);
         //grab the list of items
         //grab the details of the item
         //search for the item in the list and delete
@@ -99,7 +109,8 @@ class theListControllerTest {
     }
 
     @Test
-    void buttonRemoveList() {
+    void buttonClearList() {
+
         //restart the currentlist
         //check to see that the currentlist is empty
     }
