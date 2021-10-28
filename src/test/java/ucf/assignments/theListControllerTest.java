@@ -54,6 +54,11 @@ class theListControllerTest {
 
     @Test
     void buttonShowIncomplete() {
+        ObservableList<ToDoListItem> test = FXCollections.observableArrayList();
+        test.add(new ToDoListItem("test","Incomplete","2021-10-28"));
+        test.add(new ToDoListItem("test","Complete","2021-10-28"));
+        test.add(new ToDoListItem("testttttt","Complete","2021-10-28"));
+        Assertions.assertEquals(1,ToDoListTableManagement.showIncomplete(test).size());
         //grab the list of items
         //loop to grab only the incomplete items
         //check to see if the amount of incomplete is equal to what was expected
@@ -61,6 +66,13 @@ class theListControllerTest {
 
     @Test
     void buttonShowComplete() {
+        ObservableList<ToDoListItem> test = FXCollections.observableArrayList();
+        test.add(new ToDoListItem("test","Incomplete","2021-10-28"));
+        test.add(new ToDoListItem("testttttt","Incomplete","2021-10-28"));
+        test.add(new ToDoListItem("test","Complete","2021-10-28"));
+        Assertions.assertEquals(1,ToDoListTableManagement.showComplete(test).size());
+
+
         //grab the list of items
         //loop to grab only the complete items
         //check to see if the amount of complete is equal to what was expected
@@ -92,20 +104,6 @@ class theListControllerTest {
         //grab the list of items and filepath
         //write all items in the multiple lists to a file
         //check to see if file matches our test file
-    }
-
-    @Test
-    void buttonChangeTitle() {
-        //take in the name to be changed
-        //change the label on the pane
-        //clear the textbox of what was entered
-        //check to see that the label has been changed
-    }
-
-    @Test
-    void buttonNewTab() {
-        //create a newtab on the current pane
-        //check that there is more than 1 tab now
     }
 
     @Test
