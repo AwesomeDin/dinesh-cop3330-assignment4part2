@@ -95,6 +95,13 @@ class theListControllerTest {
 
     @Test
     void buttonSaveList() {
+        ObservableList<ToDoListItem> test = FXCollections.observableArrayList();
+        test.add(new ToDoListItem("test","Incomplete","2021-10-28"));
+        test.add(new ToDoListItem("testttttt","Incomplete","2021-10-28"));
+        test.add(new ToDoListItem("test","Complete","2021-10-28"));
+
+        Assertions.assertTrue(ToDoListFiles.saveFile("C:\\Users\\rithvik\\Desktop","test",test));
+
         //This test will work for both 17 and 18
 
         //grab the list of items and filepath

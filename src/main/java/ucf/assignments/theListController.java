@@ -128,7 +128,7 @@ public class theListController {
         }
         else
         {
-            if (ToDoListFiles.saveFile(textFolderPath,textFileName, mainList.size()))
+            if (ToDoListFiles.saveFile(textFolderPath.getCharacters().toString(),textFileName.getCharacters().toString(), mainList))
             {
                 textFolderPath.setText("");
                 textFileName.setText("");
