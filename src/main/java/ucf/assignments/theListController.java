@@ -86,7 +86,9 @@ public class theListController {
     }
 
     public void buttonChangeStatus() {
-        tableView = ToDoListItemManagement.statusChange(tableView);
+        String s = ToDoListItemManagement.statusChange(tableView.getSelectionModel().getSelectedItem().getStatus());
+        tableView.getSelectionModel().getSelectedItem().setStatus(s);
+        //tableView = ToDoListItemManagement.statusChange(tableView);
         tableView.refresh();
         //check to see if row was selected
         //change status to "complete" or "incomplete"
@@ -168,8 +170,8 @@ public class theListController {
     }
 
     public void changeDueDateColumn(TableColumn.CellEditEvent<ToDoListItem, String> theItemCell) {
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate date = LocalDate.parse(theItemCell.getNewValue().toString(),fmt);
+        DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate date = LocalDate.parse(theItemCell.getNewValue().toString(),DTF);
 
         tableView.getSelectionModel().getSelectedItem().setDueDate(date.toString());
         tableView.refresh();
@@ -187,7 +189,6 @@ public class theListController {
             item.setDescription("Please adhere to 256 character limit, please reenter the description.");
             tableView.refresh();
         }
-        //Did not add an error yet, but going to have to if they don't follow the rules
     }
 
 }

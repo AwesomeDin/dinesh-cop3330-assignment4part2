@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Test;
 
 class theListControllerTest {
 
-    @FXML
-    public TableView<ToDoListItem> tableView;
     //PLEASE READ
     //Please edit the savetest to reflect a path to a folder somewhere on your computer,
     //then the test will work.
@@ -55,7 +53,7 @@ class theListControllerTest {
 
     @Test
     void buttonChangeStatus() {
-
+        Assertions.assertEquals("Complete",ToDoListItemManagement.statusChange("Incomplete"));
         //grab the list of items
         //grab the details of the item
         //search for the item in the list and change status

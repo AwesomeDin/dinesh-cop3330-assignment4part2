@@ -45,16 +45,16 @@ public class ToDoListItemManagement {
         return FXCollections.observableArrayList();
     }
 
-    public static TableView<ToDoListItem> statusChange(TableView<ToDoListItem> tableView)
+    public static String statusChange(String s)
     {
-        if(tableView.getSelectionModel().getSelectedItem().getStatus().equalsIgnoreCase("Incomplete"))
+        if(s.equalsIgnoreCase("Incomplete"))
         {
-            tableView.getSelectionModel().getSelectedItem().setStatus("Complete");
+            return ("Complete");
         }
         else
         {
-            tableView.getSelectionModel().getSelectedItem().setStatus("Incomplete");
+            return ("Incomplete");
         }
-        return tableView;
     }
+
 }
