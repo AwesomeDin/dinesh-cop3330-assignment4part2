@@ -2,10 +2,19 @@ package ucf.assignments;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableView;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class theListControllerTest {
+
+    @FXML
+    public TableView<ToDoListItem> tableView;
+    //PLEASE READ
+    //Please edit the savetest to reflect a path to a folder somewhere on your computer,
+    //then the test will work.
+
     @Test
     void editDueDate() {
         //grab the list
@@ -46,6 +55,7 @@ class theListControllerTest {
 
     @Test
     void buttonChangeStatus() {
+
         //grab the list of items
         //grab the details of the item
         //search for the item in the list and change status
@@ -72,7 +82,6 @@ class theListControllerTest {
         test.add(new ToDoListItem("test","Complete","2021-10-28"));
         Assertions.assertEquals(1,ToDoListTableManagement.showComplete(test).size());
 
-
         //grab the list of items
         //loop to grab only the complete items
         //check to see if the amount of complete is equal to what was expected
@@ -80,13 +89,18 @@ class theListControllerTest {
 
     @Test
     void buttonShowAll() {
+        ObservableList<ToDoListItem> test = FXCollections.observableArrayList();
+        test.add(new ToDoListItem("test","Incomplete","2021-10-28"));
+        test.add(new ToDoListItem("testttttt","Incomplete","2021-10-28"));
+        test.add(new ToDoListItem("test","Complete","2021-10-28"));
+        Assertions.assertEquals(3,ToDoListTableManagement.showAll(test).size());
         //grab the list of items
         //check to see if the items displayed are equal to size of list
     }
 
     @Test
     void buttonLoadList() {
-        //This test will work for both 19 and 20
+        Assertions.assertFalse(ToDoListFiles.loadFile("C:\\Users\\rithvik\\Deskto","test"));
 
         //grab the file and file path
         //read in all items to a list
@@ -102,14 +116,8 @@ class theListControllerTest {
 
         Assertions.assertTrue(ToDoListFiles.saveFile("C:\\Users\\rithvik\\Desktop","test",test));
 
-        //This test will work for both 17 and 18
-
         //grab the list of items and filepath
-        //write all items in the single list to a file
-        //check to see if file matches our test file
-
-        //grab the list of items and filepath
-        //write all items in the multiple lists to a file
+        //write all items in the list to a file
         //check to see if file matches our test file
     }
 

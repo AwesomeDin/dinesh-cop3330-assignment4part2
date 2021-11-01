@@ -86,16 +86,7 @@ public class theListController {
     }
 
     public void buttonChangeStatus() {
-        //Might have to update this so you can change multiple items at once
-
-        if(tableView.getSelectionModel().getSelectedItem().getStatus().equalsIgnoreCase("Incomplete"))
-        {
-            tableView.getSelectionModel().getSelectedItem().setStatus("Complete");
-        }
-        else
-        {
-            tableView.getSelectionModel().getSelectedItem().setStatus("Incomplete");
-        }
+        tableView = ToDoListItemManagement.statusChange(tableView);
         tableView.refresh();
         //check to see if row was selected
         //change status to "complete" or "incomplete"
@@ -116,7 +107,7 @@ public class theListController {
         //refresh the table with that new list
     }
     public void buttonShowAll() {
-        tableView.setItems(mainList);
+        tableView.setItems(ToDoListTableManagement.showAll(mainList));
         //The status does not matter
         //refresh the table with the full list
     }

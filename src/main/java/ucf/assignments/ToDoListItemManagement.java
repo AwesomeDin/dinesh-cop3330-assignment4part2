@@ -2,6 +2,7 @@ package ucf.assignments;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
 
 import java.sql.Date;
 
@@ -42,5 +43,18 @@ public class ToDoListItemManagement {
     public static ObservableList<ToDoListItem> clearList(ObservableList<ToDoListItem> toClear)
     {
         return FXCollections.observableArrayList();
+    }
+
+    public static TableView<ToDoListItem> statusChange(TableView<ToDoListItem> tableView)
+    {
+        if(tableView.getSelectionModel().getSelectedItem().getStatus().equalsIgnoreCase("Incomplete"))
+        {
+            tableView.getSelectionModel().getSelectedItem().setStatus("Complete");
+        }
+        else
+        {
+            tableView.getSelectionModel().getSelectedItem().setStatus("Incomplete");
+        }
+        return tableView;
     }
 }

@@ -40,4 +40,12 @@ public class ToDoListTableManagement {
 
     }
 
+    public static ObservableList<ToDoListItem> showAll(ObservableList<ToDoListItem> theList) {
+        ObservableList<ToDoListItem> newList = FXCollections.observableArrayList();
+        for (ToDoListItem item : theList) {
+            newList.add(item);
+        }
+        return newList;
+    }
+
 }
