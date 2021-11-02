@@ -50,21 +50,13 @@ public class theListController {
         mainList = ToDoListTableManagement.starter();
         tableView.setItems(mainList);
 
-        //allow fields to be edited
         tableView.setEditable(true);
         itemDescCol.setCellFactory(TextFieldTableCell.forTableColumn());
         itemDateCol.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
     }
     //definitions for the observablelist of items
 
     //definitions for the textfields, filepath and filename
-
-    //definitions for the table using hashmaps
-
-    //definitions for the tab, creating new tabs
 
     //initialize the table using setCellValueFactory
     //update the fields to edit in the table itself
@@ -152,11 +144,15 @@ public class theListController {
     }
 
     public void buttonClearList() {
+        //sets the mainlist equal to a new list
         mainList = ToDoListItemManagement.clearList(mainList);
         tableView.setItems(mainList);
     }
 
     public void buttonBrowse() {
+        //uses DirectoryChooser and Stage to open up a new window
+        //Allows the user to choose a folder
+        //Checks to see if the folder is correct
         final DirectoryChooser dirchooser = new DirectoryChooser();
 
         Stage stage = (Stage) anchorPane.getScene().getWindow();
@@ -170,6 +166,11 @@ public class theListController {
     }
 
     public void changeDueDateColumn(TableColumn.CellEditEvent<ToDoListItem, String> theItemCell) {
+        //Uses datetimeformatter to get a pattern
+        //Grabs selected item
+        //Will not allow the user to enter a date if it doesn't match the pattern
+        //refreshes table with new date
+
         DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate date = LocalDate.parse(theItemCell.getNewValue().toString(),DTF);
 
@@ -178,12 +179,12 @@ public class theListController {
     }
 
     public void changeDescriptionColumn(TableColumn.CellEditEvent<ToDoListItem, String> theItemCell) {
+        //Grabs the selected item
+        //Checks to see if it is within range
+        //If correct sets the description, else sets it to an error
         ToDoListItem item = tableView.getSelectionModel().getSelectedItem();
-        if(theItemCell.getNewValue().length() <=256 &&
-                theItemCell.getNewValue().length() >=1)
-        {
+        if(theItemCell.getNewValue().length() <=256 && theItemCell.getNewValue().length() >=1)
             item.setDescription(theItemCell.getNewValue());
-        }
         else
         {
             item.setDescription("Please adhere to 256 character limit, please reenter the description.");

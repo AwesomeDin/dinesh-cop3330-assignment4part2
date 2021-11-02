@@ -8,10 +8,14 @@ package ucf.assignments;
 import javafx.beans.property.SimpleStringProperty;
 
 public class ToDoListItem {
+    //variables declarations:
+    //descriptions, status, dueDate
+
     private final SimpleStringProperty itemDescription;
     private final SimpleStringProperty itemStatus;
     private final SimpleStringProperty itemdueDate;
 
+    //Constructor to set all the variables to the incoming values
     public ToDoListItem(String description, String status, String dueDate) {
         this.itemDescription = new SimpleStringProperty(description);
         this.itemStatus = new SimpleStringProperty(status);
@@ -19,6 +23,7 @@ public class ToDoListItem {
     }
 
 
+    //Setters and getters for every variable
     public String getDescription() {
         return itemDescription.get();
     }
@@ -43,6 +48,7 @@ public class ToDoListItem {
         this.itemdueDate.set(dueDate);
     }
 
+    //toString method override which will allow me to write to files with the given information
     @Override
     public String toString() {
         return getDescription()+","+getDueDate()+","+getStatus();

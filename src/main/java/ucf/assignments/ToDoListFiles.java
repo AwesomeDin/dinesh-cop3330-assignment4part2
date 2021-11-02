@@ -6,7 +6,6 @@ package ucf.assignments;
  */
 
 import javafx.collections.ObservableList;
-import javafx.scene.control.TextField;
 
 import java.io.*;
 import java.util.Scanner;
@@ -15,34 +14,31 @@ public class ToDoListFiles {
 
     public static boolean saveFile (String folderName, String fileName, ObservableList<ToDoListItem> theList){
         if(fileWriter(folderName, fileName, theList))
-        {
             return true;
-        }
         return false;
 
         //See if the filename is empty else proceed
-        //Write to a new file with filewriter
-        //write size, elements of the table, and title of the list to a new file
         //Return true if it worked or false if it didn't
     }
 
     public static boolean fileWriter(String folderName, String fileName, ObservableList<ToDoListItem> theList)
     {
-        PrintWriter writer;
+        PrintWriter w;
         try {
             FileWriter fw = new FileWriter(folderName + "\\" + fileName + ".txt",false);
-            writer = new PrintWriter(fw);
+            w = new PrintWriter(fw);
         } catch (IOException e)
         {
             return false;
         }
-        writer.println(theList.size());
+        w.println(theList.size());
         for(int i = 0; i <theList.size();i++)
-        {
-            writer.println(theList.get(i).toString());
-        }
-        writer.close();
+            w.println(theList.get(i).toString());
+        w.close();
         return true;
+
+        //Write to a new file with filewriter
+        //write size, elements of the table, and title of the list to a new file
     }
 
     public static boolean loadFile (String folderPath, String fileName){

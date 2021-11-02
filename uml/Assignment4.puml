@@ -20,38 +20,47 @@ class theListController {
 +buttonShowIncomplete()
 +buttonShowComplete()
 +buttonShowAll()
-+buttonChangeTitle()
-+buttonNewTab()
 +buttonSaveList()
 +buttonLoadList()
++buttonClearList()
++buttonBrowse()
++changeDueDateColumn()
++changeDescriptionColumn()
 +buttonRemoveTab()
 }
 
 class ToDoListFiles {
 +saveFile()
 +loadFile()
++fileWriter()
 }
 
 class ToDoListItem {
--descript
--status
--dueDate
-+getdescript()
-+setdescript()
-+getstatus()
-+setstatus()
-+getdueDate()
-+setdueDate()
+-itemDescription
+-itemStatus
+-itemdueDate
++getDescription()
++setDescription()
++getStatus()
++setStatus()
++getDueDate()
++setDueDate()
++toString()
 }
 
 class ToDoListItemManagement {
 +addItem()
-+deleteItem()
++removeItem()
++time()
++clearList()
++statusChange()
 }
 
 class ToDoListTableManagement {
++starter()
 +showIncomplete()
 +showComplete()
++showAll()
 }
 
 @enduml
