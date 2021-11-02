@@ -23,5 +23,16 @@ To display all items in the list please click the "Show All" button.
 To save the list please click the "Browse" button to select the folder path and then type the name of
 the file name into the box. From there please click the "Save" button.
 Notes: Please only type the name of the file, do not add .txt or anything else.
-Example of Folder Path:
-C:\Users
+
+------Example of Folder Path: C:\Users\rithvik\Desktop
+
+------Example of File Name: test
+
+To load the list please click the "Browse" button to select the folder path and then type the name of
+the file name into the box. From there please click the "Load" button.
+Notes: Please only type the name of the file, do not add .txt or anything else.
+
+------Example of Folder Path: C:\Users\rithvik\Desktop
+
+------Example of File Name: test
+
