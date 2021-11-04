@@ -9,7 +9,8 @@ To change the status of an item please choose the row(item) from the list and cl
 To clear the list of all items please click the "Clear List" button.
 
 To edit the description of an item please choose the row(item) from the list and choose the description box,
-after you are done editing please click Enter on your keyboard for it to save to the table.
+after you are done editing please click Enter on your keyboard for it to save to the table. It must be between 1 
+and 256 characters or it will ask you to reenter a valid description.
 
 To edit the date of an item please choose the row(item) from the list and choose the date box,
 after you are done editing please click Enter on your keyboard for it to save to the table. REMEMBER you must follow
