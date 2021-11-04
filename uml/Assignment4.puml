@@ -54,6 +54,8 @@ class ToDoListItemManagement {
 +time()
 +clearList()
 +statusChange()
++checkDate()
++checkLength()
 }
 
 class ToDoListTableManagement {
