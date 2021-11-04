@@ -8,9 +8,6 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 
 class theListControllerTest {
-    //PLEASE READ
-    //Please edit the savetest to reflect a path to a folder somewhere on your computer,
-    //then the test will work.
 
     @Test
     void editDueDate() {
@@ -112,7 +109,7 @@ class theListControllerTest {
         test.add(new ToDoListItem("testttttt","Incomplete","2021-10-28"));
         test.add(new ToDoListItem("test","Complete","2021-10-28"));
 
-        Assertions.assertTrue(ToDoListFiles.saveFile("C:\\Users\\rithvik\\Desktop","test",test));
+        Assertions.assertTrue(ToDoListFiles.saveFile("src/main/java","test",test));
 
         //grab the list of items and filepath
         //write all items in the list to a file
