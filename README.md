@@ -12,7 +12,8 @@ To edit the description of an item please choose the row(item) from the list and
 after you are done editing please click Enter on your keyboard for it to save to the table.
 
 To edit the date of an item please choose the row(item) from the list and choose the date box,
-after you are done editing please click Enter on your keyboard for it to save to the table.
+after you are done editing please click Enter on your keyboard for it to save to the table. REMEMBER you must follow
+the constraints given (YYYY-MM-DD) otherwise you will not be able to enter a date.
 
 To display incomplete items in the list please click the "Show Incomplete" button.
 
