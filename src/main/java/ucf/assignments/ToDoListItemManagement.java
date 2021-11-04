@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /*
  *  UCF COP3330 Fall 2021 Assignment 4 Solution
@@ -48,13 +50,21 @@ public class ToDoListItemManagement {
     public static String statusChange(String s)
     {
         if(s.equalsIgnoreCase("Incomplete"))
-        {
             return ("Complete");
-        }
         else
-        {
             return ("Incomplete");
-        }
     }
 
+    public static Boolean checkLength(int s)
+    {
+        if(s >=1 && s <=256)
+            return true;
+        return false;
+    }
+
+    public static LocalDate checkDate(String s)
+    {
+        DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        return LocalDate.parse(s,DTF);
+    }
 }

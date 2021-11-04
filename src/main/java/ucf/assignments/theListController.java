@@ -171,9 +171,7 @@ public class theListController {
         //Will not allow the user to enter a date if it doesn't match the pattern
         //refreshes table with new date
 
-        DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate date = LocalDate.parse(theItemCell.getNewValue().toString(),DTF);
-
+        LocalDate date = ToDoListItemManagement.checkDate(theItemCell.getNewValue());
         tableView.getSelectionModel().getSelectedItem().setDueDate(date.toString());
         tableView.refresh();
     }
@@ -183,7 +181,7 @@ public class theListController {
         //Checks to see if it is within range
         //If correct sets the description, else sets it to an error
         ToDoListItem item = tableView.getSelectionModel().getSelectedItem();
-        if(theItemCell.getNewValue().length() <=256 && theItemCell.getNewValue().length() >=1)
+        if(ToDoListItemManagement.checkLength(theItemCell.getNewValue().length()))
             item.setDescription(theItemCell.getNewValue());
         else
         {

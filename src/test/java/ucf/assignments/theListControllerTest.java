@@ -2,30 +2,30 @@ package ucf.assignments;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.TableView;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class theListControllerTest {
+import java.time.LocalDate;
 
+class theListControllerTest {
     //PLEASE READ
     //Please edit the savetest to reflect a path to a folder somewhere on your computer,
     //then the test will work.
 
     @Test
     void editDueDate() {
+        LocalDate date = LocalDate.parse("1995-01-01");
+        Assertions.assertEquals(date,ToDoListItemManagement.checkDate("1995-01-01"));
         //grab the list
         //grab the details of the item
-        //edit duedate
-        //check to see if duedate is correct
+        //check to see if duedate is correct format
     }
     @Test
     void editDescription() {
+        Assertions.assertTrue(ToDoListItemManagement.checkLength(30));
         //grab the list
         //grab the details of the item
-        //edit description
-        //check to see if the description is correct
+        //check to see if description is within range
     }
 
     @Test
