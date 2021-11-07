@@ -1,5 +1,7 @@
 # dinesh-cop3330-assignment4part2
 
+I have implemented the sorting by date in my table for the extra point
+
 To add a new item please click the "Add" button and edit the information in the table.
 
 To remove an item please choose the row(item) from the list and click the "Remove" button.
@@ -9,11 +11,11 @@ To change the status of an item please choose the row(item) from the list and cl
 To clear the list of all items please click the "Clear List" button.
 
 To edit the description of an item please choose the row(item) from the list and choose the description box,
-after you are done editing please click Enter on your keyboard for it to save to the table. It must be between 1 
+after you are done editing please click ENTER on your keyboard for it to save to the table. It must be between 1 
 and 256 characters or it will ask you to reenter a valid description.
 
 To edit the date of an item please choose the row(item) from the list and choose the date box,
-after you are done editing please click Enter on your keyboard for it to save to the table. REMEMBER you must follow
+after you are done editing please click ENTER on your keyboard for it to save to the table. REMEMBER you must follow
 the constraints given (YYYY-MM-DD) otherwise you will not be able to enter a date.
 
 To display incomplete items in the list please click the "Show Incomplete" button.
