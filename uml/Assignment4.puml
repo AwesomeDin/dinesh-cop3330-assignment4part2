@@ -14,6 +14,7 @@ class theApp {
 }
 
 class theListController {
++startTable()
 +buttonAddItem()
 +buttonRemoveItem()
 +buttonChangeStatus()
@@ -26,7 +27,6 @@ class theListController {
 +buttonBrowse()
 +changeDueDateColumn()
 +changeDescriptionColumn()
-+buttonRemoveTab()
 }
 
 class ToDoListFiles {
@@ -45,10 +45,11 @@ class ToDoListItem {
 +setStatus()
 +getDueDate()
 +setDueDate()
-+toString()
++toWrite()
 }
 
 class ToDoListItemManagement {
++initialItem()
 +addItem()
 +removeItem()
 +time()
@@ -59,7 +60,6 @@ class ToDoListItemManagement {
 }
 
 class ToDoListTableManagement {
-+starter()
 +showIncomplete()
 +showComplete()
 +showAll()

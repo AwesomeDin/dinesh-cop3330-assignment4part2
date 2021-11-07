@@ -33,7 +33,7 @@ public class ToDoListFiles {
         }
         w.println(theList.size());
         for(int i = 0; i <theList.size();i++)
-            w.println(theList.get(i).toString());
+            w.println(theList.get(i).toWrite());
         w.close();
         return true;
 

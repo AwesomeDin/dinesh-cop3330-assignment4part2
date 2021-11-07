@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 /*
  *  UCF COP3330 Fall 2021 Assignment 4 Solution
@@ -47,19 +46,21 @@ public class theListController {
         itemDateCol.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
         itemStatusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        mainList = ToDoListTableManagement.starter();
+        mainList = FXCollections.observableArrayList();
         tableView.setItems(mainList);
 
         tableView.setEditable(true);
         itemDescCol.setCellFactory(TextFieldTableCell.forTableColumn());
         itemDateCol.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        //definitions for the observablelist of items
+
+        //definitions for the textfields, filepath and filename
+
+        //initialize the table using setCellValueFactory
+        //update the fields to edit in the table itself
     }
-    //definitions for the observablelist of items
 
-    //definitions for the textfields, filepath and filename
-
-    //initialize the table using setCellValueFactory
-    //update the fields to edit in the table itself
 
 
     public void buttonAddItem() {
@@ -68,7 +69,6 @@ public class theListController {
     }
 
     public void buttonRemoveItem() {
-        //going to have to add an error to make sure they have actually clicked something
         mainList = ToDoListItemManagement.removeItem(tableView.getSelectionModel().getSelectedItems(),mainList);
         tableView.setItems(mainList);
 
@@ -80,7 +80,6 @@ public class theListController {
     public void buttonChangeStatus() {
         String s = ToDoListItemManagement.statusChange(tableView.getSelectionModel().getSelectedItem().getStatus());
         tableView.getSelectionModel().getSelectedItem().setStatus(s);
-        //tableView = ToDoListItemManagement.statusChange(tableView);
         tableView.refresh();
         //check to see if row was selected
         //change status to "complete" or "incomplete"
@@ -124,7 +123,10 @@ public class theListController {
                 textFileName.setText("Please reread the instructions and try again");
             }
         }
-        //export current tab table as text file
+        //Checks to see if path is empty
+        //Otherwise saves the file as a text file
+        // sets the field to empty
+        //if error then tells the user
     }
 
     public void buttonLoadList() {
@@ -138,21 +140,18 @@ public class theListController {
             textFolderPath.setText("Please reread the instructions and try again");
             textFileName.setText("Please reread the instructions and try again");
         }
-        //export current tab table as text file
         //get external text file
         //import that textfile into the table of the current tab
     }
 
     public void buttonClearList() {
-        //sets the mainlist equal to a new list
         mainList = ToDoListItemManagement.clearList(mainList);
         tableView.setItems(mainList);
+
+        //sets the mainlist equal to a new list
     }
 
     public void buttonBrowse() {
-        //uses DirectoryChooser and Stage to open up a new window
-        //Allows the user to choose a folder
-        //Checks to see if the folder is correct
         final DirectoryChooser dirchooser = new DirectoryChooser();
 
         Stage stage = (Stage) anchorPane.getScene().getWindow();
@@ -163,23 +162,25 @@ public class theListController {
         {
             textFolderPath.setText(file.getAbsolutePath());
         }
+
+        //uses DirectoryChooser and Stage to open up a new window
+        //Allows the user to choose a folder
+        //Checks to see if the folder is valid path
     }
 
     public void changeDueDateColumn(TableColumn.CellEditEvent<ToDoListItem, String> theItemCell) {
-        //Uses datetimeformatter to get a pattern
-        //Grabs selected item
-        //Will not allow the user to enter a date if it doesn't match the pattern
-        //refreshes table with new date
 
         LocalDate date = ToDoListItemManagement.checkDate(theItemCell.getNewValue());
         tableView.getSelectionModel().getSelectedItem().setDueDate(date.toString());
         tableView.refresh();
+
+        //Uses datetimeformatter to get a pattern
+        //Grabs selected item
+        //Will not allow the user to enter a date if it doesn't match the pattern
+        //refreshes table with new date
     }
 
     public void changeDescriptionColumn(TableColumn.CellEditEvent<ToDoListItem, String> theItemCell) {
-        //Grabs the selected item
-        //Checks to see if it is within range
-        //If correct sets the description, else sets it to an error
         ToDoListItem item = tableView.getSelectionModel().getSelectedItem();
         if(ToDoListItemManagement.checkLength(theItemCell.getNewValue().length()))
             item.setDescription(theItemCell.getNewValue());
@@ -188,6 +189,10 @@ public class theListController {
             item.setDescription("Please adhere to 256 character limit, please reenter the description.");
             tableView.refresh();
         }
+
+        //Grabs the selected item
+        //Checks to see if the description is within range
+        //If correct sets the description, else sets it to an error
     }
 
 }

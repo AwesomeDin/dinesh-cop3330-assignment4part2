@@ -9,9 +9,6 @@ import javafx.collections.ObservableList;
  */
 
 public class ToDoListTableManagement {
-    public static ObservableList<ToDoListItem> starter() {
-        return FXCollections.observableArrayList();
-    }
 
     public static ObservableList<ToDoListItem> showComplete(ObservableList<ToDoListItem> theList) {
         ObservableList<ToDoListItem> listComplete = FXCollections.observableArrayList();
@@ -46,6 +43,8 @@ public class ToDoListTableManagement {
             newList.add(item);
         }
         return newList;
+        //adds all the items to a new list
+        //returns that new list to show all
     }
 
 }

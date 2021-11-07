@@ -2,7 +2,6 @@ package ucf.assignments;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -18,12 +17,16 @@ public class ToDoListItemManagement {
         long millis=System.currentTimeMillis();
         java.sql.Date date=new java.sql.Date(millis);
         return date;
+
+        //Gets the current tiem for the intial item
     }
 
     public static ObservableList<ToDoListItem> initialItem(ObservableList<ToDoListItem> theList)
     {
         theList.add(new ToDoListItem("256 Characters", "Incomplete", time().toString()));
         return theList;
+        //adds an initial item to the list
+        //returns the list when finished
     }
 
     public static void addItem(String desc, String dueDate, String status) {
@@ -38,13 +41,16 @@ public class ToDoListItemManagement {
         {
             theList.remove(item);
         }
-        //loop to delete the item that was selected from the list passed in
         return theList;
+        //Loop to find item passed in
+        //removes item from the list
+        //returns the list when finished
     }
 
     public static ObservableList<ToDoListItem> clearList(ObservableList<ToDoListItem> toClear)
     {
         return FXCollections.observableArrayList();
+        //sets the list equal to a brand new list
     }
 
     public static String statusChange(String s)
@@ -53,6 +59,8 @@ public class ToDoListItemManagement {
             return ("Complete");
         else
             return ("Incomplete");
+        //if the string passed in is complete it will send the opposite
+        //vice versa as well
     }
 
     public static Boolean checkLength(int s)
@@ -60,11 +68,14 @@ public class ToDoListItemManagement {
         if(s >=1 && s <=256)
             return true;
         return false;
+        //checks to see if length is valid
+        //returns boolean dependent if valid
     }
 
     public static LocalDate checkDate(String s)
     {
         DateTimeFormatter DTF = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.parse(s,DTF);
+        //checks to see if string passed in is formatted correctly
     }
 }

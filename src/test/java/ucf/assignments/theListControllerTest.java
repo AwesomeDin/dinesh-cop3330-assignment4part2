@@ -7,7 +7,23 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solution
+ *  Copyright 2021 Rithvik Dinesh
+ */
+
 class theListControllerTest {
+
+    @Test
+    void checkCapacity () {
+        ObservableList<ToDoListItem> test = FXCollections.observableArrayList();
+        for(int i = 0; i< 110;i++){
+            test.add(new ToDoListItem("test" + i,"Incomplete","2021-10-28"));
+        }
+        Assertions.assertTrue(test.size()>100);
+
+        //checks to see if the list can hold more than 100 items
+    }
 
     @Test
     void editDueDate() {

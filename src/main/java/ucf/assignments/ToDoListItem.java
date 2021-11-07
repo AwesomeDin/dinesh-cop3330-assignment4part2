@@ -48,9 +48,8 @@ public class ToDoListItem {
         this.itemdueDate.set(dueDate);
     }
 
-    //toString method override which will allow me to write to files with the given information
-    @Override
-    public String toString() {
+    public String toWrite() {
         return getDescription()+","+getDueDate()+","+getStatus();
+        //used for printing everything to a file
     }
 }
